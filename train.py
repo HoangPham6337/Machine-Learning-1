@@ -39,18 +39,12 @@ for path in paths.values():
     if not os.path.exists(path):
         if os.name == 'posix':
             os.system(f"mkdir -p {path}")
-        # if os.name == 'nt':
-        #     os.system("mkdir {path}")
 
 if os.name =='posix':
     if not os.path.exists(os.path.join(paths['PRETRAINED_MODEL_PATH'])):
         os.system(f"wget {PRETRAINED_MODEL_URL}")
         os.system(f"mv {PRETRAINED_MODEL_NAME+'.tar.gz'} {paths['PRETRAINED_MODEL_PATH']}")
         os.system(f"cd {paths['PRETRAINED_MODEL_PATH']} && tar -zxvf {PRETRAINED_MODEL_NAME+'.tar.gz'}")
-# if os.name == 'nt':
-#     os.system(f"wget.download(PRETRAINED_MODEL_URL)")
-#     os.system(f"move {PRETRAINED_MODEL_NAME+'.tar.gz'} {paths['PRETRAINED_MODEL_PATH']}")
-#     os.system(f"cd {paths['PRETRAINED_MODEL_PATH']} && tar -zxvf {PRETRAINED_MODEL_NAME+'.tar.gz'}")
 
 
 labels = [{'name':'ThumbsUp', 'id':1}, {'name':'ThumbsDown', 'id':2}, {'name':'ThankYou', 'id':3}, {'name':'LiveLong', 'id':4}]
@@ -64,7 +58,7 @@ with open(files['LABELMAP'], 'w') as f:
         
 ARCHIVE_FILES = os.path.join(paths['IMAGE_PATH'], 'archive.tar.gz')
 if os.path.exists(ARCHIVE_FILES):
-  os.system(f"tar -zxvf {ARCHIVE_FILES}")
+    os.system(f"tar -zxvf {ARCHIVE_FILES}")
 
 if not os.path.exists(files['TF_RECORD_SCRIPT']):
     os.system(f"git clone https://github.com/nicknochnack/GenerateTFRecord {paths['SCRIPTS_PATH']}")
