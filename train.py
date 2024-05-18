@@ -1,20 +1,11 @@
 import os
-import object_detection
+import sys
+# import object_detection
+import subprocess
 import tensorflow as tf
 from object_detection.utils import config_util
 from object_detection.protos import pipeline_pb2
 from google.protobuf import text_format
-
-gpus = tf.config.list_physical_devices('GPU')
-gpu_memory = 3800 
-if gpus: 
-    tf.config.set_logical_device_configuration(
-        gpus[0],
-        [tf.config.LogicalDeviceConfiguration(memory_limit=gpu_memory)]
-    )
-
-# logical_gpus = tf.config.list_logical_devices('GPU')
-# print(len(gpus), "Physical GPU,", len(logical_gpus), "Logical GPUs")
 
 CUSTOM_MODEL_NAME = 'my_ssd_mobnet' 
 PRETRAINED_MODEL_NAME = 'ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8'
@@ -52,7 +43,7 @@ for path in paths.values():
         #     os.system("mkdir {path}")
 
 if os.name =='posix':
-    if not os.path.isfile(PRETRAINED_MODEL_URL):
+    if not os.path.exists(os.path.join(paths['PRETRAINED_MODEL_PATH'])):
         os.system(f"wget {PRETRAINED_MODEL_URL}")
         os.system(f"mv {PRETRAINED_MODEL_NAME+'.tar.gz'} {paths['PRETRAINED_MODEL_PATH']}")
         os.system(f"cd {paths['PRETRAINED_MODEL_PATH']} && tar -zxvf {PRETRAINED_MODEL_NAME+'.tar.gz'}")
