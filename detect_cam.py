@@ -19,7 +19,7 @@ if gpus:
         )
         
         logical_gpus = tf.config.list_logical_devices('GPU')
-        print(len(gpus), "Physical GPU,", len(logical_gpus), "Logical GPUs")
+        # print(len(gpus), "Physical GPU,", len(logical_gpus), "Logical GPUs")
     except RuntimeError as e:
         print(e)
 
@@ -96,7 +96,7 @@ while cap.isOpened():
                 min_score_thresh=.8,
                 agnostic_mode=False)
 
-    cv2.imshow('object detection',  cv2.resize(image_np_with_detections, (800, 600)))
+    cv2.imshow('object detection',  cv2.resize(image_np_with_detections, (width, height)))
     
     if cv2.waitKey(10) & 0xFF == ord('q'):
         cap.release()

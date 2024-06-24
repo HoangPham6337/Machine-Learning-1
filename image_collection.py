@@ -3,7 +3,7 @@ import uuid
 import os
 import time
 
-labels = ["thumbsup", "thumbsdown", "thankyou", "livelong"]
+labels = ["thumbsup", "thumbsdown", "thankyou", "livelong", "okay"]
 number_of_imgs = 10
 
 IMAGES_PATH = os.path.join("Tensorflow", "workspace", "images", "collectedimages")

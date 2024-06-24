@@ -39,15 +39,14 @@ for path in paths.values():
     if not os.path.exists(path):
         if os.name == 'posix':
             os.system(f"mkdir -p {path}")
-
 if os.name =='posix':
-    if not os.path.exists(os.path.join(paths['PRETRAINED_MODEL_PATH'])):
+    if not os.path.exists(os.path.join(paths['PRETRAINED_MODEL_PATH'], PRETRAINED_MODEL_NAME)):
         os.system(f"wget {PRETRAINED_MODEL_URL}")
         os.system(f"mv {PRETRAINED_MODEL_NAME+'.tar.gz'} {paths['PRETRAINED_MODEL_PATH']}")
         os.system(f"cd {paths['PRETRAINED_MODEL_PATH']} && tar -zxvf {PRETRAINED_MODEL_NAME+'.tar.gz'}")
 
 
-labels = [{'name':'ThumbsUp', 'id':1}, {'name':'ThumbsDown', 'id':2}, {'name':'ThankYou', 'id':3}, {'name':'LiveLong', 'id':4}]
+labels = [{'name':'ThumbsUp', 'id':1}, {'name':'ThumbsDown', 'id':2}, {'name':'ThankYou', 'id':3}, {'name':'LiveLong', 'id':4}, {'name':'Okay', 'id':5}]
 
 with open(files['LABELMAP'], 'w') as f:
     for label in labels:

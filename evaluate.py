@@ -4,7 +4,6 @@ PRETRAINED_MODEL_NAME = 'ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8'
 PRETRAINED_MODEL_URL = 'http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8.tar.gz'
 TF_RECORD_SCRIPT_NAME = 'generate_tfrecord.py'
 LABEL_MAP_NAME = 'label_map.pbtxt'
-
 paths = {
     'WORKSPACE_PATH': os.path.join('Tensorflow', 'workspace'),
     'SCRIPTS_PATH': os.path.join('Tensorflow','scripts'),
@@ -26,14 +25,6 @@ files = {
     'LABELMAP': os.path.join(paths['ANNOTATION_PATH'], LABEL_MAP_NAME)
 }
 
-labels = [{'name':'ThumbsUp', 'id':1}, {'name':'ThumbsDown', 'id':2}, {'name':'ThankYou', 'id':3}, {'name':'LiveLong', 'id':4}]
-
-for path in paths.values():
-    if not os.path.exists(path):
-        if os.name == 'posix':
-            os.system(f"mkdir -p {path}")
-
-
-# Download the TF Models pretrained models from Tensorflow Model Zoo
-if not os.path.exists(os.path.join(paths['APIMODEL_PATH'], 'research', 'object_detection')):
-    os.system(f"git clone https://github.com/tensorflow/models {paths['APIMODEL_PATH']}")
+TRAINING_SCRIPT = os.path.join(paths['APIMODEL_PATH'], 'research', 'object_detection', 'model_main_tf2.py')
+command = "python {} --model_dir={} --pipeline_config_path={} --checkpoint_dir={}".format(TRAINING_SCRIPT, paths['CHECKPOINT_PATH'],files['PIPELINE_CONFIG'], paths['CHECKPOINT_PATH'])
+os.system(command)
