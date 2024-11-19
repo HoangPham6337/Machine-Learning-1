@@ -1,0 +1,26 @@
+<annotation>
+	<folder>thankyou</folder>
+	<filename>thankyou.f2d6e316-14a5-11ef-9b94-a08069f4fd17.jpg</filename>
+	<path>/home/tom-maverick/Documents/USTH (symlink)/Machine-Learning/Final-Project/TFODCourse/Tensorflow/workspace/images/collectedimages/thankyou/thankyou.f2d6e316-14a5-11ef-9b94-a08069f4fd17.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>ThankYou</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>215</xmin>
+			<ymin>54</ymin>
+			<xmax>460</xmax>
+			<ymax>359</ymax>
+		</bndbox>
+	</object>
+</annotation>
