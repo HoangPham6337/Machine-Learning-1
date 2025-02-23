@@ -1,4 +1,7 @@
 # ML Model Installation Steps
+## Credits
+Pham Xuan Hoang - hoangphamat0407@gmail.com
+Bui Le Duc Anh - anhbld.22bi13010@usth.edu.vn
 ## Foreword
 We are going to install all the dependencies beforehand, not as we go like in the tutorial. 
 
@@ -7,6 +10,8 @@ Run everything in the terminal, *not* in Jupyter Notebook or ~~VCCode terminal s
 **This script is written for Linux, you can try it on Windows but I don’t think it will work.**
 
 Install `nvtop` to monitor the NVIDIA GPU usage (you can try `amdgpu_top` for AMD GPU).
+## Demo
+![demo](./demo.png)
 ## Setup the environment
 ### Step 1: Install Anaconda
 Take notice at step 7 in the Anaconda wiki
