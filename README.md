@@ -1,7 +1,8 @@
 # ML Model Installation Steps
 ## Credits
-Pham Xuan Hoang - hoangphamat0407@gmail.com
 Bui Le Duc Anh - anhbld.22bi13010@usth.edu.vn
+
+Pham Xuan Hoang - hoangphamat0407@gmail.com
 ## Foreword
 We are going to install all the dependencies beforehand, not as we go like in the tutorial. 
 
